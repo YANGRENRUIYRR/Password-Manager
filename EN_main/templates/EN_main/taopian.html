@@ -1,0 +1,22 @@
+{% extends 'EN_main/base.html' %}
+
+{% block page_header %}
+  <h1>TaoPianFangZhu</h1>
+{% endblock page_header %}
+
+{% block content %}
+
+  {% for username in taopian %}
+    <div class="card mb-3">
+      <!-- Card header with timestamp and edit link -->
+      <h4 class="card-header">
+        {{ username.date_added|date:'Y-m-d H:i:s' }}
+      </h4>
+      <!-- Card body with username text -->
+      <div class="card-body">{{username.text2}}</div>
+    </div>
+  {% empty %}
+    <p>None</p>
+  {% endfor %}
+
+{% endblock content %}
